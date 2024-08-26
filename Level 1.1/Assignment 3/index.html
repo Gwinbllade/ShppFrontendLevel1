@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Import font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Import font "Roboto Condensed" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Import font "Roboto" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Import font "Dosis" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+
+    <header>
+        <div class="content-container">
+            <img src="images/logo.svg" alt="">
+            <div class="burger-meny">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="text-container">
+            <h1>мисли<br>глобально</h1>
+            <span class="gray-line"></span>
+            <p>
+                Di Gі — це діджитал агенція повного циклу, спрямована на найкращий <br>результат наших клієнтів в
+                маркетингу, продажах та
+                управленні
+            </p>
+            <button id="more-button">датальніше</button>
+
+            <div class="slider">
+                <span class="slider-cirle"></span>
+                <span class="slider-cirle" style="background-color: transparent;"></span>
+                <span class="slider-cirle"></span>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="prev-button" class="slider-button"><i class="fa-solid fa-chevron-left"></i></button>
+            <button id="next-button" class="slider-button"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section class="promo">
+        <div class="text-container">
+            <div class="title">Ви полюбите нас з першої зустрічі!</div>
+            <p>Ми надаємо комплексний підхід до просування компанії,<br>
+                продуктів та послуг в цифровій сфері.</p>
+        </div>
+        <button id="call-me-button">передзвоніть мені</button>
+    </section>
+
+    <section class="services">
+        <div class="text-container">
+            <h2>Сервіс</h2>
+
+            <div class="sub-text-container">
+                <div class="blue-line"></div>
+                <p>Від ідеї до незабутнього та
+                    вимірюваного результату</p>
+                <div class="blue-line"></div>
+                <p>Інтеграція бездоганного виробництва, передових технологій та ретельного вимірювання продуктивності
+                </p>
+            </div>
+
+        </div>
+
+        <div class="services-grid-container">
+            <div class="service-card">
+                <img src="images/service-1.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/service-2.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/service-3.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/service-4.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/service-5.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/service-6.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/service-7.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="images/service-8.svg" alt="">
+                <div class="service-text-name">Стратегія</div>
+                <div class="float-text-container">
+                    <p>Створимо унікальний та зручний дизайн</p>
+                    <a href="">детальніше<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="recent-work">
+        <h2>наші проєкти</h2>
+        <span class="white-line"></span>
+        <div class="recent-work-grid-container">
+
+            <div class="resent-work-card">
+                <div class="images">
+                    <img src="images/portfolio-1.png" alt="">
+                    <div class="float-content-container">
+                        <a href=""><img src="images/info button.svg" alt=""></a>
+                        <a href=""><img src="images/search.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="work-text-name">
+                    Lalique бутик
+                </div>
+            </div>
+
+            <div class="resent-work-card">
+                <div class="images">
+                    <img src="images/portfolio-2.png" alt="">
+                    <div class="float-content-container">
+                        <a href=""><img src="images/info button.svg" alt=""></a>
+                        <a href=""><img src="images/search.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="work-text-name">
+                    Будівництво домів
+                </div>
+            </div>
+
+            <div class="resent-work-card">
+                <div class="images">
+                    <img src="images/portfolio-3.png" alt="">
+                    <div class="float-content-container">
+                        <a href=""><img src="images/info button.svg" alt=""></a>
+                        <a href=""><img src="images/search.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="work-text-name">
+                    Кав'ярня
+                </div>
+            </div>
+
+            <div class="resent-work-card">
+                <div class="images">
+                    <img src="images/portfolio-4.png" alt="">
+                    <div class="float-content-container">
+                        <a href=""><img src="images/info button.svg" alt=""></a>
+                        <a href=""><img src="images/search.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="work-text-name">
+                    Унікальні тури
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="video-block">
+        <div class="content-container">
+            <img src="images/our-team.png" alt="">
+            <div class="text-container">
+                <div class="title">Команда</div>
+                <div class="blue-line"></div>
+                <p>Наша команда — це наша найбільша цінність.
+                    Ми наполегливо працювали, щоб створити групу експертів,
+                    чиї навички доповнюють один одного.
+                    У членів нашої команди різні історії, але ми розділяємо загальну пристрасть до ідеалу. Ми віримо,
+                    щоб залишатись
+                    професіоналом, потрібно розвиватись, тому ми постійно шукаємо способи, як стати краще в тому, що ми
+                    робимо.</p>
+                <div class="button-container">
+                    <button id="watch-video-button">дивитись відео</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="lates-news">
+        <h2>Останні новини</h2>
+        <span class="blue-line"></span>
+        <div class="lates-news-grid-container">
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-1.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-2.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+
+
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-3.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-4.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-5.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title ">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+
+
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-6.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+
+
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-7.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+
+            <a href="">
+                <div class="news-card">
+                    <div class="images">
+                        <img src="images/news-2.png" alt="">
+
+                    </div>
+                    <div class="content">
+                        <img src="images/info button.png" alt="">
+                    </div>
+
+                    <div class="news-title">
+                        <p>3Д в брендингу</p>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <i class="fa-solid fa-quote-right"></i>
+        <p>
+            <q>Якщо треба створити або підняти імідж компанії,<br>
+                то <span class="mark-text">діджитал-маркетинг</span> є найбільш влучним</q><br>
+
+        </p>
+        <span class="autor">- Маргарита Акулич</span>
+
+        <div class="slider">
+            <span class="slider-cirle"></span>
+            <span class="slider-cirle" style="background-color: transparent;"></span>
+            <span class="slider-cirle"></span>
+        </div>
+
+
+    </section>
+
+    <footer>
+        <div class="logo-container">
+            <div class="logo"><img src="images/logo.svg" alt=""></div>
+        </div>
+
+
+        <div class="footer-content">
+            <div class="sub-content-container">
+                <p>Ми хотіли б почути все про ваш проєкт.<br>
+                    Звʼяжіться з нами!</p>
+
+                <div class="social-media-links-container">
+                    <a class="social-media-link-container left-border" href="">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a class="social-media-link-container" href="">
+                        <i class="fa-brands fa-google-plus-g"></i>
+                    </a>
+                    <a class="social-media-link-container" href="">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a class="social-media-link-container right-border" href="">
+                        <i class="fa-brands fa-pinterest"></i>
+                    </a>
+                </div>
+
+                <div class="contacts-container">
+                    <div class="sub-contact-container">
+                        <h4>контакти</h4>
+                        <a href="">+380 555 55 66</a>
+                        <a href="">digi@gmail.com</a>
+                    </div>
+
+                    <div class="sub-contact-container">
+                        <h4>адреса</h4>
+                        <a href="">Пр. Науки 107</a>
+                        <a href="">Kиїв / Україна</a>
+                    </div>
+
+                    <div class="sub-contact-container">
+                        <h4>допомога</h4>
+                        <a href="">Як з нами звʼязатись?</a>
+                        <a href="">Що таке діджитал?</a>
+                        <a href="">Вартість послуг</a>
+                    </div>
+
+                    <div class="sub-contact-container">
+                        <h4>меню</h4>
+                        <a href="">Наші проєкти</a>
+                        <a href="">Команда</a>
+                        <a href="">Блог</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <a class="up-button" href="">
+            <p>Нагору <i class="fa-solid fa-angle-up"></i></p>
+        </a>
+    </footer>
+</body>
+
+</html>
