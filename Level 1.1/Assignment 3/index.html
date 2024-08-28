@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>DiGi</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.css">
+
+
 
     <!-- Import font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -33,13 +40,24 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+
+    <meta property="og:title" content="DiGi - діджитал-маркетинг для вашого бізнесу" />
+    <meta property="og:image" content="images/bg-img.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta property="og:description"
+        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu metus ac ex pulvinar fermentum. Donec imperdiet enim enim, nec auctor enim efficitur eu. Pellentesque in nisi massa. Vestibulum volutpat hendrerit tellus. Proin elementum mi non pulvinar molestie. Duis quis urna sagittis, ullamcorper velit vitae, porta est. Aenean et vehicula erat. Donec ornare a velit id egestas. Praesent commodo posuere sollicitudin. Vivamus eu turpis velit.">
 </head>
 
 <body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
     <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/main.js"></script>
+
+
 
     <header>
         <div class="content-container">
@@ -54,18 +72,38 @@
         <div class="text-container">
             <h1>мисли<br>глобально</h1>
             <span class="gray-line"></span>
-            <p>
-                Di Gі — це діджитал агенція повного циклу, спрямована на найкращий <br>результат наших клієнтів в
-                маркетингу, продажах та
-                управленні
-            </p>
-            <button id="more-button">датальніше</button>
+            <div id="intro-carousel" class="owl-carousel">
+                <p>
+                    Di Gі — це діджитал агенція повного циклу, спрямована на найкращий <br>результат наших клієнтів
+                    в
+                    маркетингу, продажах та
+                    управленні
+                </p>
 
-            <div class="slider">
-                <span class="slider-cirle"></span>
-                <span class="slider-cirle" style="background-color: transparent;"></span>
-                <span class="slider-cirle"></span>
+                <p>
+                    Di Gі — це діджитал агенція повного циклу, спрямована на найкращий <br>результат наших клієнтів
+                    в
+                    маркетингу, продажах та
+                    управленні
+                </p>
+                <p>
+                    Di Gі — це діджитал агенція повного циклу, спрямована на найкращий <br>результат наших клієнтів
+                    в
+                    маркетингу, продажах та
+                    управленні
+                </p>
+
             </div>
+
+            <button id="more-button">датальніше</button>
+            <div class="owl-theme">
+                <div id='intro-carousel-dots' class='owl-dots slider'>
+                    <div class='owl-dot slider-cirle'> <span></span></div>
+                    <div class='owl-dot slider-cirle'> <span></span></div>
+                    <div class='owl-dot slider-cirle'> <span></span></div>
+                </div>
+            </div>
+
         </div>
 
         <div class="button-container">
@@ -401,18 +439,45 @@
     </section>
 
     <section class="testimonial">
-        <i class="fa-solid fa-quote-right"></i>
-        <p>
-            <q>Якщо треба створити або підняти імідж компанії,<br>
-                то <span class="mark-text">діджитал-маркетинг</span> є найбільш влучним</q><br>
+        <div id="quote-carousel" class="owl-carousel">
+            <div class="quote-container">
+                <i class="fa-solid fa-quote-right"></i>
+                <p>
+                    <q>Якщо треба створити або підняти імідж компанії,<br>
+                        то <span class="mark-text">діджитал-маркетинг</span> є найбільш влучним</q><br>
 
-        </p>
-        <span class="autor">- Маргарита Акулич</span>
+                </p>
+                <span class="autor">- Маргарита Акулич</span>
+            </div>
 
-        <div class="slider">
-            <span class="slider-cirle"></span>
-            <span class="slider-cirle" style="background-color: transparent;"></span>
-            <span class="slider-cirle"></span>
+            <div class="quote-container">
+                <i class="fa-solid fa-quote-right"></i>
+                <p>
+                    <q>Цей район тримає <span class="mark-text">пес Патрон</span></q><br>
+
+                </p>
+                <span class="autor">- Емануель Макрон</span>
+            </div>
+
+            <div class="quote-container">
+                <i class="fa-solid fa-quote-right"></i>
+                <p>
+                    <q>Якщо треба створити або підняти імідж компанії,<br>
+                        то <span class="mark-text">діджитал-маркетинг</span> є найбільш влучним</q><br>
+
+                </p>
+                <span class="autor">- Маргарита Акулич</span>
+            </div>
+        </div>
+
+
+
+        <div class="owl-theme">
+            <div id='testimonial-carousel-dots' class='owl-dots slider'>
+                <div class='owl-dot slider-cirle'> <span></span></div>
+                <div class='owl-dot slider-cirle'> <span></span></div>
+                <div class='owl-dot slider-cirle'> <span></span></div>
+            </div>
         </div>
 
 
