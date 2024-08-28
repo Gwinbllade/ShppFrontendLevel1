@@ -1230,6 +1230,16 @@ footer .right-border {
     .testimonial p {
         width: 552px;
         text-align: center;
+        font-weight: 400;
+        line-height: 37.5px;
+    }
+
+    .fa-quote-right {
+        padding-bottom: 40px !important;
+    }
+
+    .autor {
+        padding-bottom: 40px;
     }
 
     footer .footer-content .sub-content-container p {
