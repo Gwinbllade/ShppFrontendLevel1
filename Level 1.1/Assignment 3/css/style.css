@@ -74,7 +74,7 @@ header .content-container {
 
 /* Intro */
 .intro {
-    background-image: url("/images/bg-img.jpg");
+    background-image: url("/images/bg-img.png");
     background-size: cover;
     height: 668px;
     width: 100%;
@@ -158,6 +158,7 @@ header .content-container {
     flex-direction: column;
     align-self: self-end;
     position: absolute;
+    z-index: 2;
 }
 
 .slider-button {
