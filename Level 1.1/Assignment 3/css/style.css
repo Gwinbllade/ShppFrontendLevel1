@@ -416,7 +416,7 @@ header .content-container {
     flex-direction: row;
 }
 
-.resent-work-card .float-content-container .button-container img {
+.resent-work-card .float-content-container .button-container a {
     margin: 5px;
 }
 
@@ -1199,10 +1199,6 @@ footer .right-border {
     .float-content-container img {
         height: 49px;
         width: 49px;
-    }
-
-    .float-content-container img:first-child {
-        padding-right: 24.48px;
     }
 
     .video-block {
