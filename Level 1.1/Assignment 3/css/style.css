@@ -401,7 +401,6 @@ header .content-container {
     height: 217px;
     width: 243px;
     background-color: #F9F6E5;
-    opacity: 0.7;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -410,8 +409,15 @@ header .content-container {
     transition: 0.5s;
 }
 
-.float-content-container img:first-child {
-    padding-right: 9.57px;
+
+.resent-work-card .float-content-container .button-container {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.resent-work-card .float-content-container .button-container img {
+    margin: 5px;
 }
 
 .work-text-name {
