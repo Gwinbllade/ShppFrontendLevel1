@@ -74,7 +74,7 @@ header .content-container {
 
 /* Intro */
 .intro {
-    background-image: url("/images/bg-img.png");
+    background-image: url("/images/intro-bg.png");
     background-size: cover;
     height: 668px;
     width: 100%;

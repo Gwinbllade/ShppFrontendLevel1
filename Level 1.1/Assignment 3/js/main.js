@@ -2,7 +2,13 @@ $(document).ready(function () {
 
     function initMasonry() {
         const grid = document.querySelector(".lates-news-grid-container");
-        if (grid) {
+        if (grid && screen.width < 1110) {
+            new Masonry(grid, {
+                gutter: 11,
+                isFitWidth: true
+            });
+        }
+        else {
             new Masonry(grid, {
                 gutter: 11
             });
