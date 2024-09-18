@@ -1,0 +1,228 @@
+/* Assignment 1 */
+.sub-assignment-section {
+    width: 100%;
+    height: 50vh;
+    border: solid 1px black;
+    display: flex;
+}
+
+.black-rect {
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    margin: auto;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+    background-color: green;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+
+#input-css-selector {
+    height: 50px;
+}
+
+#yellow-rect {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    margin: auto;
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+#red-rect {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    visibility: hidden;
+}
+
+#green-rect {
+    width: 50px;
+    height: 20px;
+    background-color: green;
+    visibility: hidden;
+}
+
+img {
+    width: 20%;
+    height: 20%;
+}
+
+.rigth-top-container {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    border: 1px solid red;
+    height: 150px;
+    width: 250px;
+    z-index: -1;
+}
+
+.custom-input {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+.scroll-to-top-button {
+    border-radius: 100%;
+    height: 80px;
+    width: 80px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    color: red;
+    font-size: 20px;
+}
+
+.parent-container {
+    height: 300px;
+    width: 300px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: green;
+}
+
+.sub-container {
+    height: 100px;
+    width: 100px;
+    background: red;
+}
+
+.grayRect {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    background-color: grey;
+    opacity: 0.5;
+
+}
+
+.remove-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Assignment 18  */
+#assignment18 {
+    height: 100vh;
+    background-color: #6990f2;
+}
+
+
+
+.drop-drup-droper-wrapper {
+    background-color: #fff;
+    width: 430px;
+    padding: 30px;
+    border-radius: 5px;
+    margin: auto;
+    height: 70%;
+}
+
+
+.drop-drup-droper-wrapper header {
+    color: #6990f2;
+    font-size: 27px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.drop-drup-droper-wrapper form {
+    border: 2px dashed #6990f2;
+    height: 50%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0px;
+}
+
+form :where(i, p) {
+    color: #6990f2;
+}
+
+form i {
+    font-size: 50px;
+}
+
+form p {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+section .row {
+    background-color: #e9f0ff;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .row i {
+    font-size: 30px;
+    color: #6990f2;
+}
+
+section .details span {
+    font-size: 14px;
+}
+
+
+.uploaded-area {
+    max-height: 40%;
+    overflow-y: scroll;
+}
+
+.uploaded-area::-webkit-scrollbar {
+    width: 0px;
+}
+
+.uploaded-area .row .content {
+    width: 100%;
+    margin-left: 15px;
+}
+
+.uploaded-area .row .details {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.uploaded-area .row i.fa-check {
+    font-size: 20px;
+}

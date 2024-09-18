@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Assignment 1 -->
+    <div class="sub-assignment-section">
+        <div class="black-rect" id="black-rect-1">1</div>
+        <div class="black-rect" id="black-rect-2">2</div>
+        <div class="black-rect" id="black-rect-3">3</div>
+
+        <div class="button-container">
+            <button class="hiden-button" id="hide-button-1" onclick="hideRect1()">1</button>
+            <button class="hiden-button" id="hide-button-2" onclick="hideRect2()">2</button>
+            <button class="hiden-button" id="hide-button-3" onclick="hideRect3()">3</button>
+        </div>
+    </div>
+    <!-- Assignment 2 -->
+    <div class="sub-assignment-section">
+        <div class="black-rect" id="black-rect-2-1">1</div>
+        <div class="button-container">
+            <button class="hiden-button" id="hide-button-4" onclick="subAssignment2()">1</button>
+        </div>
+    </div>
+
+    <!-- Assignment 3 -->
+    <div class="sub-assignment-section" id="assignment5">
+        <div class="black-rect">1</div>
+        <div class="black-rect">2</div>
+        <div class="black-rect">3</div>
+        <div class="black-rect">4</div>
+        <div class="black-rect">5</div>
+        <button class="hiden-button" onclick="assignment3()"></button>
+    </div>
+
+    <!-- Assignment 4 -->
+    <div class="sub-assignment-section">
+        <input type="text" id="input-css-selector">
+        <button class="hiden-button" onclick="assignment4()"></button>
+    </div>
+
+    <!-- Assignment 5 -->
+    <div class="sub-assignment-section">
+        <div id="yellow-rect" onclick="assignment5_1()"></div>
+    </div>
+
+    <!-- Assignment 6 -->
+    <div class="sub-assignment-section">
+        <div id="red-rect"></div>
+        <button id="button-visibility-red-rect"></button>
+    </div>
+
+    <!-- Assignment 7 -->
+    <div class="sub-assignment-section">
+        <input type="text" id="input-hide-green-rect">
+        <div id="green-rect"></div>
+    </div>
+
+    <!-- Assignment 8 -->
+    <div class="sub-assignment-section">
+        <input type="text" id="input-img-url">
+        <button onclick="addImg()">Додати картинку</button>
+        <div id="img-container"></div>
+    </div>
+
+    <!-- Assignment 9 -->
+    <div class="sub-assignment-section">
+        <textarea type="text" id="input-imgs-url"></textarea>
+        <button onclick="addImgs()">Додати картинки</button>
+        <div id="imgs-container"></div>
+    </div>
+
+    <!-- Assignment 10 - 12 -->
+    <div class="rigth-top-container">
+        <p id="mouse-coord-container">X: 0, Y: 0</p>
+        <p id="brauser-langueage-container"></p>
+        <p id="latitude-longitude-container"></p>
+    </div>
+
+    <!-- Assignment 13 -->
+    <div class="sub-assignment-section">
+        <div class="custom-input" id="custom-input-1"></div>
+        <div class="custom-input" id="custom-input-2"></div>
+        <div class="custom-input" id="custom-input-3"></div>
+    </div>
+
+    <!-- Assignment 14 -->
+    <button class="scroll-to-top-button">UP</button>
+
+    <!-- Assignment 15 -->
+    <div class="sub-assignment-section">
+        <div class="parent-container">
+            <div class="sub-container"></div>
+        </div>
+    </div>
+
+    <!-- Assignment 16 -->
+    <div class="sub-assignment-section">
+        <button onclick="addGrayRect()"></button>
+    </div>
+
+    <!-- Assignment 17 -->
+    <div class="sub-assignment-section">
+        <form id="form"><input type="submit" value="GO"></form>
+    </div>
+
+    <!-- Assignment 18 -->
+    <div class="sub-assignment-section" id="assignment18">
+
+        <div class="drop-drup-droper-wrapper">
+            <header>Drag-n-Drop</header>
+            <form action="#" class="drop-form">
+                <input type="file" class="file-input" hidden>
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Browse File to Upload</p>
+            </form>
+
+            <section class="uploaded-area">
+
+            </section>
+
+        </div>
+    </div>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
