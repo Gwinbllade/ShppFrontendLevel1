@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#input-text {
+    height: 50vh;
+}
+
+#enrich-text-button {
+    height: 100px;
+    font-size: 30px;
+    background-color: greenyellow;
+}
