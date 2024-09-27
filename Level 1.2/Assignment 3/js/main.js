@@ -99,13 +99,13 @@ function preparingCitiesInfoDB(csvText) {
         .slice(0, 10)
         .reduce(makeGeneralObj, {});
 
-    return function (text) {
+    return (text) => {
         Object.keys(citysInfoDB).forEach(cityName => {
             const cityInfo = citysInfoDB[cityName];
             text = text.replaceAll(cityName, `${cityName}(${cityInfo.rating} місце в ТОП-10 найбільших міст України, населення ${cityInfo.population} ${getPeopleWord(cityInfo.population)})`);
         });
         return text;
-    }
+    };
 }
 
 
