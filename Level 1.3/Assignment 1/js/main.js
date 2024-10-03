@@ -1,45 +1,34 @@
 function DataTable(config, data) {
     const parent = document.querySelectorAll(config.parent)[0];
     const tableHeadColumns = config.columns;
-    const tableRow = document.createElement("tr");
-
-
     const table = document.createElement("table");
     const tableHead = document.createElement("thead");
     const tableBody = document.createElement("tbody");
+
     parent.appendChild(table);
     table.appendChild(tableHead);
     table.appendChild(tableBody);
 
-
-
-    // filtering input data by table value from config
-    const valueList = config.columns.map(column => column.value);
-    const filteredData = data.map(entry => {
-        const validData = {};
-        for (const key of valueList) {
-            if (key in entry) {
-                validData[key] = entry[key];
-            }
-        }
-        return validData;
-    });
-
     // Create table head
-    tableRow.innerHTML += `<th>№</th>`;
-    tableHeadColumns.forEach(element => {
-        tableRow.innerHTML += `<th>${element.title}</th>`;
+    const headRow = document.createElement("tr");
+    headRow.innerHTML = '<th>№</th>';
+    tableHeadColumns.forEach(column => {
+        headRow.innerHTML += `<th>${column.title}</th>`;
     });
-    tableHead.innerHTML = `<tr> ${tableRow.innerHTML}</tr>`;
+    tableHead.appendChild(headRow);
 
-    //Create table body    
-    filteredData.forEach((data, index) => {
+    // Create table body
+    data.forEach((item, index) => {
+        const tableRow = document.createElement("tr");
         tableRow.innerHTML = `<td>${index + 1}</td>`;
-        Object.values(data).forEach(entry => {
-            tableRow.innerHTML += `<td>${entry}</td>`;
+
+        tableHeadColumns.forEach(column => {
+            const cellValue = item[column.value];
+            tableRow.innerHTML += `<td>${cellValue}</td>`;
         });
-        tableBody.innerHTML += `<tr> ${tableRow.innerHTML}</tr>`;
-    })
+
+        tableBody.appendChild(tableRow);
+    });
 }
 
 const config1 = {
