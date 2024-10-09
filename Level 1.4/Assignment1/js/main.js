@@ -7,6 +7,7 @@ async function DataTable(config) {
     const parent = document.querySelectorAll(config.parent)[0];
     parent.innerHTML = "";
 
+
     const tableHeadColumns = config.columns;
     const table = document.createElement("table");
     const tableHead = document.createElement("thead");
@@ -51,12 +52,159 @@ async function DataTable(config) {
         tableBody.appendChild(tableRow);
 
         entryNumber += 1;
+
+
     }
     addEventListenersToActionButtons(config);
 
+    const addNewEntryButton = document.createElement("button");
+    addNewEntryButton.innerHTML = "Додати";
+    addNewEntryButton.classList.add("add-button");
+    addNewEntryButton.addEventListener("click", () => document.body.appendChild(createAddingForm(config)));
+    parent.insertBefore(addNewEntryButton, parent.firstChild);
 }
 
 
+
+function createAddingForm(config) {
+    // create form
+    const addingForm = document.createElement("form");
+    const inputs = config.columns.map(entry => entry.input);
+
+    inputs.forEach(inputs => {
+        // check if inputs is array
+        const inputSettings = Array.isArray(inputs) ? inputs : [inputs];
+
+        // Create input
+        inputSettings.forEach(inputSetting => {
+            let label = document.createElement("label");
+            let input;
+
+            if (inputSetting.type === "select") {
+                input = document.createElement("select");
+                inputSetting.options.forEach(optionValue => {
+                    const option = document.createElement("option");
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    input.appendChild(option);
+                });
+            } else {
+                input = document.createElement("input");
+                input.type = inputSetting.type;
+            }
+
+            input.name = inputSetting.name;
+            label.textContent = inputSetting.label;
+            label.setAttribute('for', inputSetting.name);
+
+            if (inputSetting.required === false) {
+                input.required = false;
+            } else {
+                input.required = true;
+            }
+
+            addingForm.appendChild(label);
+            addingForm.appendChild(input);
+            addingForm.appendChild(document.createElement("br"));
+        });
+
+    });
+
+    const modalWindowContainer = document.createElement("div");
+    const modalWindow = document.createElement("div");
+
+
+    modalWindowContainer.classList.add("modal-window-container");
+    modalWindow.classList.add("modal-window");
+
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Зберегти';
+    submitButton.classList.add("submit-button");
+
+    const close = document.createElement("span");
+
+    close.classList.add("close");
+    close.addEventListener("click", () => { document.body.removeChild(modalWindowContainer) });
+
+
+    submitButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+            await sendData(addingForm, config.apiUrl);
+            document.body.removeChild(modalWindowContainer);
+            DataTable(config);
+
+        } catch (error) {
+            alert('Помилка при відправці даних');
+        }
+    });
+
+    addingForm.appendChild(submitButton);
+
+    modalWindow.appendChild(close);
+    modalWindow.appendChild(addingForm);
+    modalWindowContainer.appendChild(modalWindow);
+    return modalWindowContainer;
+}
+
+
+function checkInputsValid(form) {
+    let isValid = true;
+    for (const formElement of form.children) {
+        if (formElement.tagName !== "LABEL" && formElement.tagName !== "BR" && formElement.tagName !== "BUTTON") {
+            if (formElement.required === true && formElement.value === "") {
+                formElement.classList.add("invalid-input");
+                isValid = false;
+            }
+            else {
+                formElement.classList.remove("invalid-input");
+
+            }
+        }
+    }
+    return isValid;
+}
+
+
+
+async function sendData(form, apiUrl) {
+    checkInputsValid(form);
+
+
+    // todo make json file 
+    try {
+        const formData = new FormData(form);
+        const newEntry = {};
+        formData.forEach(function (value, key) {
+            if (key === "price") {
+                newEntry[key] = Number.parseInt(value);
+            } else {
+                newEntry[key] = value;
+            }
+        });
+        const json = JSON.stringify(newEntry);
+
+
+        const response = await fetch(apiUrl, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: json,
+        });
+
+
+
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response;
+
+    } catch (error) {
+        console.error('Error sending data:', error);
+        throw error;
+    }
+}
 
 
 function addEventListenersToActionButtons(config) {
@@ -91,29 +239,66 @@ function getColorLabel(color) {
 
 
 
-
-
-
 const config1 = {
     parent: '#usersTable',
     columns: [
-        { title: 'Ім’я', value: 'name' },
-        { title: 'Прізвище', value: 'surname' },
-        { title: 'Вік', value: (user) => getAge(user.birthday) },
-        { title: 'Фото', value: (user) => `<img src="${user.avatar}" alt="${user.name} ${user.surname}"/>` }
+        {
+            title: 'Ім’я',
+            value: 'name',
+            input: { type: "text", name: "name", label: "Ім'я" }
+        },
+        {
+            title: 'Прізвище',
+            value: 'surname',
+            input: { type: "text", name: "surname", label: "Прізвище" }
+        },
+        {
+            title: 'Вік',
+            value: (user) => getAge(user.birthday),
+            input: { type: "date", name: "birthday", label: "Прізвище" }
+        },
+        {
+            title: 'Фото',
+            value: (user) => `<img src="${user.avatar}" alt="${user.name} ${user.surname}"/>`,
+            input: { type: "text", name: "avatar", label: "Шлях до фото" }
+        }
     ],
-    apiUrl: "https://mock-api.shpp.me/ibichkoskyi/users"
+    apiUrl: "https://mock-api.shpp.me/<nsurname>/users"
 };
+
+
+
 
 const config2 = {
     parent: '#productsTable',
     columns: [
-        { title: 'Назва', value: 'title' },
-        { title: 'Ціна', value: (product) => `${product.price} ${product.currency}` },
-        { title: 'Колір', value: (product) => getColorLabel(product.color) },
+        {
+            title: 'Назва',
+            value: 'title',
+            input: { type: 'text', name: "title", label: "Назва" }
+        },
+        {
+            title: 'Ціна',
+            value: (product) => `${product.price} ${product.currency}`,
+            input: [
+                { type: 'number', name: 'price', label: 'Ціна' },
+                { type: 'select', name: 'currency', label: 'Валюта', options: ['$', '€', '₴'], required: false }
+            ]
+        },
+        {
+            title: 'Колір',
+            value: (product) => getColorLabel(product.color),
+            input: { type: 'color', name: 'color', label: 'Колір' }
+        },
     ],
     apiUrl: "https://mock-api.shpp.me/ibichkoskyi/products"
 };
 
-DataTable(config2);
+
+
+
+
 DataTable(config1);
+DataTable(config2);
+
+
