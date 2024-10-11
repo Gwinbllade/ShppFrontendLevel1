@@ -7,7 +7,6 @@ async function DataTable(config) {
     const parent = document.querySelectorAll(config.parent)[0];
     parent.innerHTML = "";
 
-
     const tableHeadColumns = config.columns;
     const table = document.createElement("table");
     const tableHead = document.createElement("thead");
@@ -47,7 +46,8 @@ async function DataTable(config) {
         });
 
         //Create action button
-        tableRow.innerHTML += `<td><button data-id="${entryIndex}" class="delete-button">Видалити</button></td>`;
+        tableRow.innerHTML += `<td><button data-id="${entryIndex}" class="delete-button">Видалити</button> <button data-id="${entryIndex}" class="edit-button">Редагувати</td>`;
+
 
         tableBody.appendChild(tableRow);
 
@@ -65,6 +65,142 @@ async function DataTable(config) {
 }
 
 
+async function createEditForm(config, entryID) {
+    let response = await fetch(`${config.apiUrl}/${entryID}`);
+    let json = await response.json();
+    let entryData = json.data;
+    console.log(entryData);
+
+
+    // create form
+    const addingForm = document.createElement("form");
+    const inputs = config.columns.map(entry => entry.input);
+
+    inputs.forEach(inputs => {
+        // check if inputs is array
+        const inputSettings = Array.isArray(inputs) ? inputs : [inputs];
+
+        // Create input
+        inputSettings.forEach(inputSetting => {
+            let label = document.createElement("label");
+            let input;
+
+            if (inputSetting.type === "select") {
+                input = document.createElement("select");
+                inputSetting.options.forEach(optionValue => {
+                    const option = document.createElement("option");
+                    option.value = optionValue;
+                    option.textContent = optionValue;
+                    input.appendChild(option);
+                });
+            } else {
+                input = document.createElement("input");
+                input.type = inputSetting.type;
+            }
+
+            input.name = inputSetting.name;
+
+
+
+            if (input.name === "birthday") {
+                input.value = entryData[inputSetting.name].split('T')[0];
+            } else {
+                input.value = entryData[inputSetting.name];
+            }
+
+
+            label.textContent = inputSetting.label;
+            label.setAttribute('for', inputSetting.name);
+
+            if (inputSetting.required === false) {
+                input.required = false;
+            } else {
+                input.required = true;
+            }
+
+            addingForm.appendChild(label);
+            addingForm.appendChild(input);
+            addingForm.appendChild(document.createElement("br"));
+        });
+
+    });
+
+    const modalWindowContainer = document.createElement("div");
+    const modalWindow = document.createElement("div");
+
+
+    modalWindowContainer.classList.add("modal-window-container");
+    modalWindow.classList.add("modal-window");
+
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Зберегти';
+    submitButton.classList.add("submit-button");
+
+    const close = document.createElement("span");
+
+    close.classList.add("close");
+    close.addEventListener("click", () => { document.body.removeChild(modalWindowContainer) });
+
+
+    submitButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        try {
+            await updateData(addingForm, config.apiUrl, entryID);
+            document.body.removeChild(modalWindowContainer);
+            DataTable(config);
+
+        } catch (error) {
+            alert('Помилка при відправці даних');
+        }
+    });
+
+    addingForm.appendChild(submitButton);
+
+    modalWindow.appendChild(close);
+    modalWindow.appendChild(addingForm);
+    modalWindowContainer.appendChild(modalWindow);
+    return modalWindowContainer;
+}
+
+
+async function updateData(form, apiUrl, id) {
+    checkInputsValid(form);
+
+
+    // todo make json file 
+    try {
+        const formData = new FormData(form);
+        const newEntry = {};
+        formData.forEach(function (value, key) {
+            if (key === "price") {
+                newEntry[key] = Number.parseInt(value);
+            } else {
+                newEntry[key] = value;
+            }
+        });
+        const json = JSON.stringify(newEntry);
+
+
+        const response = await fetch(`${apiUrl}/${id}`, {
+            method: "PUT",
+            headers: { 'Content-Type': 'application/json' },
+            body: json,
+        });
+
+
+
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response;
+
+    } catch (error) {
+        console.error('Error sending data:', error);
+        throw error;
+    }
+}
 
 function createAddingForm(config) {
     // create form
@@ -170,8 +306,6 @@ function checkInputsValid(form) {
 
 async function sendData(form, apiUrl) {
     checkInputsValid(form);
-
-
     // todo make json file 
     try {
         const formData = new FormData(form);
@@ -191,10 +325,6 @@ async function sendData(form, apiUrl) {
             headers: { 'Content-Type': 'application/json' },
             body: json,
         });
-
-
-
-
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -210,10 +340,18 @@ async function sendData(form, apiUrl) {
 function addEventListenersToActionButtons(config) {
     const buttons = document.querySelectorAll(`${config.parent} button`);
     for (button of buttons) {
-        button.addEventListener("click", async (event) => {
-            await deleteItem(event.target.getAttribute("data-id"), config.apiUrl);
-            await DataTable(config);
-        })
+        if (button.className === "delete-button") {
+            button.addEventListener("click", async (event) => {
+                await deleteItem(event.target.getAttribute("data-id"), config.apiUrl);
+                await DataTable(config);
+            })
+        }
+        else if (button.className === "edit-button") {
+            button.addEventListener("click", async (event) => {
+                document.body.appendChild(await createEditForm(config, event.target.getAttribute("data-id")));
+            })
+        }
+
     }
 
 }

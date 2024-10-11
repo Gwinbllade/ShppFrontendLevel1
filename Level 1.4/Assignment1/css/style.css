@@ -163,3 +163,11 @@ tr:last-child td:last-child {
 .invalid-input {
     border: 2px solid red;
 }
+
+.edit-button {
+    background-color: yellow;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
